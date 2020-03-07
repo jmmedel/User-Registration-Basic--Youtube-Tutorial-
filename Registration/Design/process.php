@@ -4,6 +4,11 @@ require_once('config.php');
 
 <?php
 
+if(!isset($_SERVER['HTTP_REFERER'])){
+    header('location: https://kagayajohn.com');
+}
+
+
 if(isset($_POST)){
 
     $firstname = $_POST['firstname'];
