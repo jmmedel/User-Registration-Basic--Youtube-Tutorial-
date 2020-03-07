@@ -25,7 +25,17 @@ $(function(){
                url: 'process.php', 
                data:{firstname:firstname,lastname:lastname,email:email,phonenumber:phonenumber,password:password},
                success:function(data){
-                 alert(data);
+                  Swal.fire({
+                      'title': 'Succesful',
+                      'text': data,
+                      'type': 'success'
+                  })
+                  $('#firstname').val('');
+                  $('#lastname').val('');
+                  $('#email').val('');
+                  $('#phonenumber').val('');
+                  $('#password').val('');
+
                },
                error:function(data){
                    alert(data);

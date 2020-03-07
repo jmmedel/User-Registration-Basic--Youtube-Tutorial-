@@ -13,6 +13,15 @@ if(isset($_POST)){
     $password =  password_hash($_POST['password'],PASSWORD_DEFAULT) ; 
 
     //SQL querty
+    $sql = "INSERT into users(firstname, lastname,email,phonenumber,password) VALUES(?,?,?,?,?)";
+    $stminsert = $db->prepare($sql);
+    $result = $stminsert->execute([$firstname,$lastname,$email,$phonenumber,$password]);
+
+    if($result){
+        echo('SucessFully Saved');
+    }else{
+        echo("There where errors while saving to the database");
+    }
 
 }else{
     echo("No DAta");
